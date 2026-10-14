@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1512">
+  <meta name="description" content="یک نامه شخصی، یک تاریخ دلخواه و چند کلمه از ته دل.">
+  <title>Roses Mail | نامه‌ای برای تو</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="content.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body data-stage="cover">
+  <div class="backdrop" aria-hidden="true">
+    <video class="backdrop__video" autoplay muted loop playsinline preload="metadata" poster="roses-poster.jpg">
+      <source src="Rosita.mp4" type="video/mp4">
+    </video>
+    <div class="backdrop__tint"></div>
+    <div class="backdrop__grain"></div>
+  </div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="identity" aria-label="Roses Mail">
+        <span class="identity__mark">R<span class="identity__rose">✦</span>M</span>
+        <span class="identity__word">ROSES <span>MAIL</span></span>
+      </div>
+      <div class="topbar__right">
+        <span class="topbar__caption">A LETTER, JUST FOR YOU</span>
+        <button type="button" class="sound-button" id="musicBtn" aria-label="پخش موسیقی" aria-pressed="false" title="پخش یا توقف موسیقی">
+          <svg id="musicPlayIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          <span id="musicLabel">موسیقی</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main" id="main">
+      <section class="stage stage--cover is-active" id="coverStage" aria-label="پاکت نامه">
+        <div class="envelope-scene">
+          <button class="envelope" id="openEnvelope" type="button" aria-label="باز کردن پاکت نامه">
+            <span class="envelope__back" aria-hidden="true"></span>
+            <span class="envelope__paper" aria-hidden="true"><span class="envelope__paper-mark">✦</span></span>
+            <span class="envelope__front" aria-hidden="true">
+              <svg class="envelope__seams" viewBox="0 0 420 270" preserveAspectRatio="none" fill="none" aria-hidden="true">
+                <path d="M1 269 L210 143 L419 269"/>
+              </svg>
+            </span>
+            <span class="envelope__flap" aria-hidden="true">
+              <svg class="envelope__flap-seam" viewBox="0 0 420 270" preserveAspectRatio="none" fill="none" aria-hidden="true">
+                <path d="M1 1 L210 143 L419 1"/>
+              </svg>
+            </span>
+            <span class="envelope__seal" aria-hidden="true">✦</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="stage stage--letter" id="letterStage" aria-labelledby="letterTitle" inert aria-hidden="true">
+        <div class="stage-heading"><span class="section-number">CHAPTER 01 <span>—</span> THE LETTER</span></div>
+        <div class="letter-sheet" id="letterCard" tabindex="-1">
+          <div class="letter-sheet__ornament" aria-hidden="true">✥ <span>✦</span> ✥</div>
+          <span class="letter-sheet__overline" id="letterOverline">خیلی دیر متوجه شدم ولی</span>
+          <h2 id="letterTitle">امیدوارم بتونم از الان به بعد با رفتار برات جبران کنم</h2>
+          <div class="letter-sheet__rule" aria-hidden="true"><span>✦</span></div>
+          <div class="letter-sheet__body" id="letterBody"></div>
+          <div class="letter-sheet__signature" id="letterSignature"></div>
+          <span class="letter-sheet__corner letter-sheet__corner--top" aria-hidden="true">✦</span>
+          <span class="letter-sheet__corner letter-sheet__corner--bottom" aria-hidden="true">✦</span>
+        </div>
+        <p class="letter-scroll-hint">برای خوندن ادامه نامه، روی کاغذ به بالا بکش</p>
+        <nav class="stage-actions" aria-label="ناوبری نامه">
+          <button type="button" class="button button--ghost" id="letterBack">بازگشت به پاکت</button>
+          <button type="button" class="button button--primary" id="letterNext">ورق بعدی <span aria-hidden="true">←</span></button>
+        </nav>
+      </section>
+
+      <section class="stage stage--calendar" id="calendarStage" aria-labelledby="calendarTitle" inert aria-hidden="true">
+        <div class="stage-heading"><span class="section-number">CHAPTER 02 <span>—</span> A SPECIAL DAY</span></div>
+        <div class="glass-panel calendar-panel">
+          <div class="panel-ornament" aria-hidden="true">✧</div>
+          <h2 id="calendarTitle">یه روز رو انتخاب کن</h2>
+          <p class="panel-description" id="calendarDescription">اگه دوست داشتی، تاریخی رو انتخاب کن که برات معنی داره.</p>
+
+          <div class="calendar" aria-label="تقویم انتخاب تاریخ">
+            <div class="calendar__toolbar">
+              <div class="calendar__switch" aria-label="نوع تقویم">
+                <button type="button" class="calendar__switch-option is-selected" data-calendar="persian" aria-pressed="true">شمسی</button>
+                <button type="button" class="calendar__switch-option" data-calendar="gregory" aria-pressed="false">میلادی</button>
+              </div>
+              <button type="button" class="calendar__today" id="todayBtn">برو به امروز</button>
+            </div>
+            <div class="calendar__month-nav">
+              <button type="button" class="calendar__nav" id="nextMonth" aria-label="ماه بعد"><span aria-hidden="true">‹</span></button>
+              <h3 id="calendarMonth" aria-live="polite"></h3>
+              <button type="button" class="calendar__nav" id="prevMonth" aria-label="ماه قبل"><span aria-hidden="true">›</span></button>
+            </div>
+            <div class="calendar__weekdays" aria-hidden="true">
+              <span>ش</span><span>ی</span><span>د</span><span>س</span><span>چ</span><span>پ</span><span>ج</span>
+            </div>
+            <div class="calendar__days" id="calendarDays" aria-label="روزهای ماه"></div>
+          </div>
+
+          <div class="selected-date" aria-live="polite">
+            <span class="selected-date__icon" aria-hidden="true">✿</span>
+            <p id="selectionHint">هنوز تاریخی انتخاب نشده.</p>
+          </div>
+          <div class="sms-composer" id="smsComposer" hidden>
+            <label for="smsMessage" class="sms-composer__label">حالا ادامه این جمله رو با حرف‌های خودت بنویس:</label>
+            <p class="sms-composer__lead" id="smsOpeningLine"></p>
+            <textarea id="smsMessage" class="sms-composer__input" rows="3" maxlength="500" dir="rtl" placeholder="ادامه جمله رو اینجا بنویس…" aria-describedby="smsHelp"></textarea>
+            <p class="sms-composer__help" id="smsHelp">این متن همراه با تاریخ انتخابی در پیامک قرار می‌گیره و فقط با تأیید خودت ارسال می‌شه.</p>
+          </div>
+          <p class="privacy-note">ارسال پیامک تنها با تأیید خودت در برنامه پیامک انجام می‌شه.</p>
+        </div>
+        <nav class="stage-actions stage-actions--wrap" aria-label="ناوبری تقویم">
+          <button type="button" class="button button--ghost" id="calendarBack">نامه قبلی</button>
+          <button type="button" class="button button--text" id="calendarSkip">بدون انتخاب ادامه بده</button>
+          <a class="button button--sms" id="calendarSms" href="sms:" hidden aria-label="باز کردن برنامه پیامک با تاریخ و متن شخصی">ارسال تاریخ و پیام با SMS <span aria-hidden="true">↗</span></a>
+          <button type="button" class="button button--primary" id="calendarNext" disabled>ادامه داستان <span aria-hidden="true">←</span></button>
+        </nav>
+      </section>
+
+      <section class="stage stage--final" id="finalStage" aria-labelledby="finalTitle" inert aria-hidden="true">
+        <div class="stage-heading"><span class="section-number">CHAPTER 03 <span>—</span> ONE LAST THING</span></div>
+        <div class="glass-panel final-panel">
+          <div class="final-panel__emblem" aria-hidden="true">✿</div>
+          <span class="panel-eyebrow">آخر این نامه، شروعِ شنیدن</span>
+          <h2 id="finalTitle">ممنون که تا اینجا خوندی</h2>
+          <div class="final-panel__copy" id="finalBody"></div>
+          <div class="final-panel__date" id="finalDateBox">
+            <span class="final-panel__date-label">تاریخ انتخاب تو</span>
+            <strong id="finalSelectedDate"></strong>
+            <span class="final-panel__date-note" id="finalDateNote"></span>
+          </div>
+          <div class="final-panel__signature" id="finalSignature"></div>
+        </div>
+        <nav class="stage-actions stage-actions--wrap" aria-label="ناوبری پایان">
+          <button type="button" class="button button--ghost" id="finalBack">بازگشت به تقویم</button>
+          <a class="button button--sms" id="shareBtn" href="sms:" hidden aria-label="باز کردن برنامه پیامک با تاریخ و متن شخصی">ارسال تاریخ و پیام با SMS <span aria-hidden="true">↗</span></a>
+          <button type="button" class="button button--text" id="restartBtn">از اول بخون</button>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="footer__sparkle" aria-hidden="true">✦</span>
+      <span>JUST BETWEEN US</span>
+      <div class="footer__progress" aria-label="پیشرفت داستان">
+        <span data-progress="letter" class="is-current"></span>
+        <span data-progress="calendar"></span>
+        <span data-progress="final"></span>
+      </div>
+      <span id="stepNumber">01 / 03</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <audio id="music" loop preload="none"><source src="Lovly.mp3" type="audio/mpeg"></audio>
+</body>
+</html>
